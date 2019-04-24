@@ -7,6 +7,28 @@ import pandas as pd
 import numpy as np
 
 
+########
+#Data Prep for Badge
+########
+
+
+
+def prepare_csv(csv1, csv2):
+    sympPath = csv1
+    trigPath = csv2
+    symp_df = pd.read_csv(sympPath)
+    trig_df = pd.read_csv(trigPath)
+    #symptom_enteries = symp_df
+    #food_enteries = trig_df
+    dataFrame = pd.concat([symp_df, trig_df], sort=False)
+    dataFrame['day'] = pd.to_datetime(dataFrame['day'])
+    dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
+
+    return dataFrame
+
+
+
+
 class Badge():
 
     def __init__(self, userID, csv):
@@ -195,35 +217,6 @@ class Badge():
 
 
 
-def prepare_csv(csv1, csv2):
-    sympPath = csv1
-    trigPath = csv2
-    symp_df = pd.read_csv(sympPath)
-    trig_df = pd.read_csv(trigPath)
-    #symptom_enteries = symp_df
-    #food_enteries = trig_df
-    dataFrame = pd.concat([symp_df, trig_df], sort=False)
-    dataFrame['day'] = pd.to_datetime(dataFrame['day'])
-    dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
-
-    return dataFrame
 
 
-### RUNNING SPACE ###
 
-
-sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
-trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
-
-df = prepare_csv(sympPath, trigPath)
-
-asaf = Badge(1, df)
-print(asaf.get_user_stats())
-print(asaf.show_user_stats_dict())
-
-print(asaf.get_rank_badge())
-
-print(asaf.get_complex_diet_badge())
-print(asaf.get_archivist_badge())
-print(asaf.get_coffee_badge())
-print(asaf.create_table())
