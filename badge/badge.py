@@ -40,53 +40,45 @@ import numpy as np
 
 class Badge():
 
-    def __init__(self, userID, csv, database=None)
+    def __init__(self, userID, csv):
         self.userID = userID
+        ##LOAD DATA## # From Data CSV for testing
+        self.data = csv
 
-        ##LOAD DATA##
-        # From Database
-        if data is not None:
-            self.data = data
-        # From Data CSV for testing
-        else:
-            symp_df = pd.read_csv(sympPath)
-            trig_df = pd.read_csv(trigPath)
-            # symptom_enteries = symp_df
-            # food_enteries = trig_df
-            all_enteries = pd.concat([symp_df, trig_df], sort=False)
-            all_enteries['day'] = pd.to_datetime(all_enteries['day'])
-            all_enteries['ts'] = pd.to_datetime(all_enteries['ts'])  # may break
 
-            self.data = all_enteries
+
 
     # stat function
     ###########
     # USER USE STATS
     ###########
     def get_user_stats(self):
+        self.entery_count = self.data.count()
 
-        total_food_enteries = len(self.data['trigger'])
+        self.total_food_enteries = self.entery_count.loc['trigger']
 
-        total_symptom_enteries = len(all_enteries['symptom'])
+        self.total_symptom_enteries = self.entery_count.loc['symptom']
 
-        total_enteries = len(all_enteries)
+        self.total_enteries = len(self.data)
 
-        number_days_with_enteries = len(all_enteries.day.unique())
+        self.number_days_with_enteries = len(self.data.day.unique())
 
-        first_entery = min(all_enteries['day'])
+        self.first_entery = min(self.data['day'])
 
-        last_entry = max(all_enteries['day'])
+        self.last_entry = max(self.data['day'])
 
-        return {"total_food_enteries": total_food_enteries, "total_symptom_enteries": total_symptom_enteries,
-                "number_days_with_enteries": number_days_with_enteries, "first_entery ": first_entery,
-                "last_entry": last_entry, "total_enteries": total_enteries}
+    def show_user_stats_dict(self):
+        return {
+                "total_food_enteries": self.total_food_enteries,
+                "total_symptom_enteries": self.total_symptom_enteries,
+                "total_enteries": self.total_enteries,
+                "number_days_with_enteries": self.number_days_with_enteries,
+                "first_entery ": self.first_entery,
+                "last_entry": self.last_entry
+                }
 
-    ###SET USER STATS attribute
-    self.user_stats = get_user_stats():
 
-    def display_user_stats(self):
-        for i in self.user_stats.items():
-            print(i)
+
 
     # attribute badges
 
@@ -98,10 +90,9 @@ class Badge():
     # formula: number of enteries
     # Newbie
 
-    def get_rank_badge(stats=self.userStats):
+    def get_rank_badge(self):
 
-        use_stats = userStats
-        total_enteries = use_stats.get('total_enteries')
+        total_enteries = self.total_enteries
 
         # cut off values for RANK BADGES
         newbVal = 10
@@ -143,7 +134,7 @@ class Badge():
         COMPLEX_DIET_VAL = 50
 
         # print(trig_df.head()) Just seeing if everything worked
-        complexDiet = all_enteries['trigger'].count()  # changed from nunique
+        complexDiet = self.data['trigger'].count()  # changed from nunique
 
         if complexDiet > COMPLEX_DIET_VAL:
             return True
@@ -155,7 +146,7 @@ class Badge():
 
         ARCHIVIST_VAL = 20
 
-        max_enteries_per_day = all_enteries.groupby(['day'])[['symptom', 'trigger']].count()
+        max_enteries_per_day = self.data.groupby(['day'])[['symptom', 'trigger']].count()
 
         max_enteries_per_day  ## see data frame
         ##create sum_symp_trig column out of symptom and trigger column
@@ -173,7 +164,7 @@ class Badge():
 
     def get_coffee_badge(self):
 
-        coffee_count = all_enteries['trigger'].str.contains('Coffee').sum() + all_enteries['trigger'].str.contains(
+        coffee_count = self.data['trigger'].str.contains('Coffee').sum() + self.data['trigger'].str.contains(
             'coffee').sum()  # or any()
         ##
         ##TOP 10 COFFEE WORDS  :>OBJECT that is food :>Dairy, Gluten,
@@ -197,32 +188,31 @@ class Badge():
     ##########
 
     # To Data Frame Method
-    def create_table():
-        stats = self.userStats
+    def create_table(self):
 
         table = pd.DataFrame({
             "PK_ID": [1],
             "User_ID": ["Asaf"],
-            "tot_symp_stat": stats.get('total_symptom_enteries'),
-            "tot_trig_stat": stats.get('total_food_enteries'),
-            "tot_entery_stat": stats.get('total_enteries'),
-            "first_entery": stats.get('first_entery'),
-            "last_entery": stats.get('last_entry'),
-            "rank_badge": rankBadge(),
-            "complex_diet_badge": complexDietBadge(),
-            "archivist_badge": archivistBadge(),
-            "coffee_badge": coffeeBadge()},
+            "tot_symp_stat": self.total_symptom_enteries,
+            "tot_trig_stat": self.total_food_enteries,
+            "tot_entery_stat": self.total_enteries,
+            "first_entery": self.first_entery,
+            "last_entery": self.last_entry,
+            "rank_badge": self.get_rank_badge(),
+            "complex_diet_badge": self.get_complex_diet_badge(),
+            "archivist_badge": self.get_archivist_badge(),
+            "coffee_badge": self.get_coffee_badge()},
             index=[1]
         )
 
-    def output_to_csv:
-        table = create_table()
+    def output_to_csv(self):
+        table = self.create_table()
         table.to_csv(r'C:\webDev\pycharm\dieta\data\export_badges.csv')
         # https://datatofish.com/export-dataframe-to-csv/
 
     # To Database output
-    def output_to_db():
-        table = create_table()
+    def output_to_db(self):
+        table = self.create_table()
         # Add to database here
         #
         #
@@ -233,26 +223,38 @@ class Badge():
 
 #LOAD DATA
 
-sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
-trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
 
 
-def prepare_csv():
+
+def prepare_csv(csv1, csv2):
+    sympPath = csv1
+    trigPath = csv2
     symp_df = pd.read_csv(sympPath)
     trig_df = pd.read_csv(trigPath)
     #symptom_enteries = symp_df
     #food_enteries = trig_df
-    all_enteries = pd.concat([symp_df, trig_df], sort=False)
-    all_enteries['day'] = pd.to_datetime(all_enteries['day'])
-    all_enteries['ts'] = pd.to_datetime(all_enteries['ts']) #may break
+    dataFrame = pd.concat([symp_df, trig_df], sort=False)
+    dataFrame['day'] = pd.to_datetime(dataFrame['day'])
+    dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
 
-asaf = Badge(1)
+    return dataFrame
+
+
+### RUNNING SPACE ###
+
+
+sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
+trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
+
+df = prepare_csv(sympPath, trigPath)
+
+asaf = Badge(1, df)
 print(asaf.get_user_stats())
-print(asaf.user_stats())
+print(asaf.show_user_stats_dict())
 
 print(asaf.get_rank_badge())
 
-print(get_complex_diet_badge)
-print(get_archivist_badge)
-print(get_coffee_badge)
-print(create_table())
+print(asaf.get_complex_diet_badge())
+print(asaf.get_archivist_badge())
+print(asaf.get_coffee_badge())
+print(asaf.create_table())
