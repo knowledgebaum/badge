@@ -5,10 +5,10 @@ from pathlib import Path
 
 sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
 trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
-combined_CSV = prepare_csv(sympPath, trigPath)
+combined_csv = prepare_csv(sympPath, trigPath)
 
 
-asaf = Badge(1, combined_CSV)
+asaf = Badge(1, combined_csv)
 print(asaf.get_user_stats())
 print(asaf.show_user_stats_dict())
 
