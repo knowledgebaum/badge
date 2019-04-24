@@ -1,6 +1,23 @@
 # badge
 
-""""# CLASS VERSION
+HOW TO USE:
+
+All of the functions will be run in the runner.py.  The runner.py also serves as an example (by printing the various class methods).  The user will add the path to the symptom and trigger csv to sympPath and trigPath.  
+EX.
+sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
+trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
+
+
+The prepare_csv function will combine the CSVs into the combined_CSV variable.  
+
+The user will use that variable when creating an instance of the Badge class.  Put another way, the Badge class will consume the combined_CSV in additon to a integer number (which represents the userID).  (At the moment the number does nothing, it is in place for a later version of this program).  
+EX.
+exampleInstanceOfSome = Badge(1, combined_csv)
+
+All of the badge methods spring from the Badge class (get_user_stats,show_user_stats_dict,get_rank_badge,get_complex_diet_badge, get_archivist_badge, get_coffee_badge, create_table)
+
+
+WHAT IT DOES:
 
 Consumes a userID and a data source.  The class only handles csv but was designed to be extended to handle database connections.
 
@@ -23,11 +40,12 @@ The output section contains 3 methods.  The badge information can be output to t
 
 The create_table() method will create a table (in PANDAS dataframe) from the values above.
 
-To Build (below):
+TO BUILD (below):
 The output_to_csv method will output the table to a csv file.
 
 The output_to_db method will output the table to a database.
 
 The load section, specifically get_badges_from_table() deals with loading badges from an external badge table.  Some badges don't need to be recalculated.  The badge/ user stats area of the Dieta app can load pre calculated badges from the badge table.
 
+Do something with the user ID.
 """
