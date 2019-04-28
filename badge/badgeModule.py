@@ -1,10 +1,10 @@
 
 
 
-
 from pathlib import Path
 import pandas as pd
 import numpy as np
+import os.path
 
 
 ########
@@ -23,6 +23,14 @@ def prepare_csv(csv1, csv2):
     dataFrame = pd.concat([symp_df, trig_df], sort=False)
     dataFrame['day'] = pd.to_datetime(dataFrame['day'])
     dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
+
+    # #ERROR TESTING
+    # if os.path.basename(sympPath) and os.path.basename(trigPath):
+    #     raise NameError('The files are not CSVs')
+    # if os.path.exists(sympPath) and os.path.exists(trigPath):
+    #     raise NameError('The path to one of your CSV files is wrong.')
+
+
 
     return dataFrame
 
@@ -153,20 +161,84 @@ class Badge():
 
             ##Coffee Badge
 
-    def get_coffee_badge(self):
+    # def get_coffee_badge(self):
+    #
+    #     ## MULTIPLE DATA
+    #     ##https://www.geeksforgeeks.org/python-pandas-dataframe-isin/
+    #
+    #     coffee_count = self.data['trigger'].str.contains('Coffee').sum() + self.data['trigger'].str.contains(
+    #         'coffee').sum()  # or any()
+    #
+    #
+    #
+    #     if coffee_count > 0:
+    #         return True
+    #     else:
+    #         return False
 
-        coffee_count = self.data['trigger'].str.contains('Coffee').sum() + self.data['trigger'].str.contains(
-            'coffee').sum()  # or any()
-        ##
-        ##TOP 10 COFFEE WORDS  :>OBJECT that is food :>Dairy, Gluten,
-        ##make variables which are top 10 of each food category
-        ##
-        # test_count = (trig_df['trigger'].str.contains('Coffee')) & (trig_df['trigger'].str.contains('coffee')).sum()
+    ##########
+    ##Testing
+    ##diet category
+    ##########
 
-        if coffee_count > 0:
+
+
+    # Category Dictionary
+    coffee = {'cateagory': 'coffee', 'terms': ['coffee', 'latte', 'americano', 'espresso',
+                                               'breve', 'cappucino', 'mocha', 'macchiato']}
+    gluten = {'cateagory': 'gluten', 'terms': ['bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
+                                               'pretzels', 'pancakes', 'waffles', 'biscuits']},
+    lactose = {'cateagory': 'lactose', 'terms': ['milk', 'cheese', 'yogurt', 'alfredo']}
+    lectin = {'cateagory': 'lectin', 'terms': ['potato', 'tomato', ]}
+
+
+    def apply_diet_filter(self,diet):
+
+        self.data['trigger'] = self.data['trigger'].str.lower()
+
+        filter = self.data['trigger'].isin(diet)
+        category_count = len(self.data[filter])
+
+
+        if category_count > 0:
             return True
         else:
             return False
+
+    def get_gluten_badge(self):
+        items = self.gluten.get('terms')
+        return self.apply_diet_filter(items)
+
+    def get_lectin_badge(self):
+        items = self.lectin.get('terms')
+        return self.apply_diet_filter(items)
+
+    def get_lactose_badge(self):
+        items = self.lactose.get('terms')
+        return self.apply_diet_filter(items)
+
+    def get_coffee_badge(self):
+
+        items = self.coffee.get('terms')
+        return self.apply_diet_filter(items)
+
+
+
+
+
+
+       ###VERBOSE VERSION
+    # coffee_filter = self.data['trigger'].isin([coffee])
+    # gluten_filter = self.data['trigger'].isin([gluten])
+    # lactose_filter = self.data['trigger'].isin([lactose])
+    # lectin_filter = self.data['trigger'].isin([lectin])
+    #
+    # len(self.data[coffee_filter])
+    # len(self.data[gluten_filter])
+    # len(self.data[lactose_filter])
+    # len(self.data[lectin_filter])
+
+
 
     ############
     # load badges from DB
@@ -181,7 +253,7 @@ class Badge():
     # To Data Frame Method
     def create_table(self):
 
-        table = pd.DataFrame({
+        table = {
             "PK_ID": [1],
             "User_ID": ["Asaf"],
             "tot_symp_stat": self.total_symptom_enteries,
@@ -192,18 +264,25 @@ class Badge():
             "rank_badge": self.get_rank_badge(),
             "complex_diet_badge": self.get_complex_diet_badge(),
             "archivist_badge": self.get_archivist_badge(),
-            "coffee_badge": self.get_coffee_badge()},
-            index=[1]
-        )
+            "coffee_badge": self.get_coffee_badge()
+                }
+        return table
 
-    def output_to_csv(self):
+
+    def output_to_csv(self, output_path=None):
+        if output_path == None:
+            csv_output_path = Path('C:\webDev\pycharm\dieta\data\export_badges.csv')
+        else:
+            csv_output_path = Path(output_path)
         table = self.create_table()
-        table.to_csv(r'C:\webDev\pycharm\dieta\data\export_badges.csv')
+        df = pd.DataFrame(data=table)
+        df.to_csv(csv_output_path)
         # https://datatofish.com/export-dataframe-to-csv/
 
     # To Database output
     def output_to_db(self):
         table = self.create_table()
+        pass
         # Add to database here
         #
         #
@@ -220,3 +299,15 @@ class Badge():
 
 
 
+#####CUT OUT
+
+##
+        ##TOP 10 COFFEE WORDS  :>OBJECT that is food :>Dairy, Gluten,
+        ##make variables which are top 10 of each food category
+        ##
+        # test_count = (trig_df['trigger'].str.contains('Coffee')) & (trig_df['trigger'].str.contains('coffee')).sum()
+
+        # lower case column
+        #
+        # coffee_filter = self.data['trigger'].str.lower().isin(['coffee', 'latte', 'americano', 'espresso',
+        #                                                        'breve', 'cappucino', 'mocha', 'macchiato'])

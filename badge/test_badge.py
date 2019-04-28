@@ -1,5 +1,5 @@
 import unittest
-from .badge import Badge, prepare_csv
+from badgeModule import Badge, prepare_csv
 from pathlib import Path
 
 class Test_Badge(unittest.TestCase):
@@ -35,11 +35,11 @@ class Test_Badge(unittest.TestCase):
         self.assertTrue(result)
 
     def test_create_table(self):
-        result = self.test_user.create_table()
-        self.assertEqual(6, result.get('rank_badge'))
+        result = self.test_user.create_table().get('rank_badge')
 
+        self.assertEqual(6, result)
 
-    # def test_output_to_csv(self):
+        # def test_output_to_csv(self):
 
         "python - m unittest -v test_badge.py"
 
