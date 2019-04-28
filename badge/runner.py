@@ -8,16 +8,24 @@ import pandas as pd
 
 
 
-#Enter Symptom Path
+#Enter Symptom CSV Path Here
 sympPath =  Path('C:/webDev/pycharm/dieta/data/ak_symptoms.csv')
-#Enter Trigger Path
+#Enter Trigger CSV Path Here
 trigPath =  Path('C:/webDev/pycharm/dieta/data/ak_triggers.csv')
 
+#################
 ### RUNNING SPACE ###
+#################
+
+
 combined_csv = prepare_csv(sympPath, trigPath)
 
 asaf = Badge(1, combined_csv)
 asaf.get_user_stats()
+
+#Print Output#
+
+
 print('USER STATS **************')
 pprint.pprint(asaf.show_user_stats_dict())
 print('*************************')
