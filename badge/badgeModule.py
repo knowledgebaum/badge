@@ -1,16 +1,13 @@
-
-
-
 from pathlib import Path
 import pandas as pd
 import numpy as np
 import os.path
 
 
-########
-#Data Prep for Badge
-########
 
+####################
+#DATA/CSV PREP
+####################
 
 
 def prepare_csv(csv1, csv2):
@@ -29,9 +26,6 @@ def prepare_csv(csv1, csv2):
     #     raise NameError('The files are not CSVs')
     # if os.path.exists(sympPath) and os.path.exists(trigPath):
     #     raise NameError('The path to one of your CSV files is wrong.')
-
-
-
     return dataFrame
 
 
@@ -41,26 +35,27 @@ class Badge():
 
     def __init__(self, userID, csv):
         self.userID = userID
-        ##LOAD DATA## # From Data CSV for testing
+
+
+        #LOAD DATA From Data CSV for testing
         self.data = csv
 
-        ###DIET CATEGORYS
-        # Category Dictionary
+
+        #DIET CATEGORYS DICTIONARYS
         self.coffee = {'category': 'coffee', 'terms': ['coffee', 'latte', 'americano', 'espresso',
                                                         'breve', 'cappucino', 'mocha', 'macchiato']}
         self.gluten = {'category': 'gluten', 'terms': ['bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
                                                         'pretzels', 'pancakes', 'waffles', 'biscuits']}
         self.lactose = {'category': 'lactose', 'terms': ['milk', 'cheese', 'yogurt', 'alfredo']}
-        self.lectin = {'category': 'lectin', 'terms': ['1j23']}
-        # ['potato', 'tomato', ]
+        self.lectin = {'category': 'lectin', 'terms': ['potato', 'tomato', ]}
 
 
 
+####################
+# STAT FUNCTIONS
+####################
 
-    # stat function
-    ###########
     # USER USE STATS
-    ###########
     def get_user_stats(self):
         self.entery_count = self.data.count()
 
@@ -76,28 +71,10 @@ class Badge():
 
         self.last_entry = max(self.data['day'])
 
-    def show_user_stats_dict(self):
-        return {
-                "total_food_enteries": self.total_food_enteries,
-                "total_symptom_enteries": self.total_symptom_enteries,
-                "total_enteries": self.total_enteries,
-                "number_days_with_enteries": self.number_days_with_enteries,
-                "first_entery ": self.first_entery,
-                "last_entry": self.last_entry
-                }
 
-
-
-
-    # attribute badges
-
-    # get badges
-
-    ###################
-    # RANK : CITIZEN SCIENTIST
-    ###################
-    # formula: number of enteries
-    # Newbie
+####################
+#RANK :CITIZEN SCIENTIST
+####################
 
     def get_rank_badge(self):
 
@@ -132,11 +109,12 @@ class Badge():
         else:
             return 'broke'
 
-    ############
-    # MISC BADGES
-    ###########
 
-    ##COMPLEX DIET
+####################
+# MISC BADGES
+####################
+
+    ##COMPLEX DIET BADGE
 
     def get_complex_diet_badge(self):
 
@@ -169,36 +147,11 @@ class Badge():
         else:
             return False
 
-            ##Coffee Badge
 
-    # def get_coffee_badge(self):
-    #
-    #     ## MULTIPLE DATA
-    #     ##https://www.geeksforgeeks.org/python-pandas-dataframe-isin/
-    #
-    #     coffee_count = self.data['trigger'].str.contains('Coffee').sum() + self.data['trigger'].str.contains(
-    #         'coffee').sum()  # or any()
-    #
-    #
-    #
-    #     if coffee_count > 0:
-    #         return True
-    #     else:
-    #         return False
-
-    ##########
-    ##Testing
-    ##diet category
-    ##########
-
-
-
-
-    ##
-    ##CATEGORY BADGES
-    ##
+####################
+# DIET CATEGORY BADGES
+####################
     def apply_diet_filter(self, diet):
-
 
         self.data['trigger'] = self.data['trigger'].str.lower()
         filter = self.data['trigger'].isin(diet)
@@ -227,36 +180,21 @@ class Badge():
         return self.apply_diet_filter(items)
 
 
+####################
+#OUTPUT DATA
+####################
+
+    def show_user_stats_dict(self):
+        return {
+                "total_food_enteries": self.total_food_enteries,
+                "total_symptom_enteries": self.total_symptom_enteries,
+                "total_enteries": self.total_enteries,
+                "number_days_with_enteries": self.number_days_with_enteries,
+                "first_entery ": self.first_entery,
+                "last_entry": self.last_entry
+                }
 
 
-
-
-
-
-       ###VERBOSE VERSION
-    # coffee_filter = self.data['trigger'].isin([coffee])
-    # gluten_filter = self.data['trigger'].isin([gluten])
-    # lactose_filter = self.data['trigger'].isin([lactose])
-    # lectin_filter = self.data['trigger'].isin([lectin])
-    #
-    # len(self.data[coffee_filter])
-    # len(self.data[gluten_filter])
-    # len(self.data[lactose_filter])
-    # len(self.data[lectin_filter])
-
-
-
-    ############
-    # load badges from DB
-    ############
-    def get_badges_from_table(self, badgeTableConnection):
-        print('This will display all the badges from a table')
-
-    ##########
-    # output
-    ##########
-
-    # To Data Frame Method
     def create_table(self):
 
         table = {
@@ -286,27 +224,28 @@ class Badge():
         # https://datatofish.com/export-dataframe-to-csv/
 
     # To Database output
-    def output_to_db(self):
+    def output_to_db(self, badge_table):
         table = self.create_table()
         pass
         # Add to database here
         #
-        #
-        #
-
-    # Not written
 
 
+####################
 #LOAD DATA
+####################
+
+    def get_badges_from_database(self, badge_table):
+        """Loads data from the Badge Table"""
+        """TO DEVELOP LATER"""
+        print('This will display all the badges from a table')
+        pass
 
 
 
-
-
-
-
-#####CUT OUT
-
+####################
+#####CUT OUT / EXCISE
+####################
 ##
         ##TOP 10 COFFEE WORDS  :>OBJECT that is food :>Dairy, Gluten,
         ##make variables which are top 10 of each food category
@@ -317,3 +256,40 @@ class Badge():
         #
         # coffee_filter = self.data['trigger'].str.lower().isin(['coffee', 'latte', 'americano', 'espresso',
         #                                                        'breve', 'cappucino', 'mocha', 'macchiato'])
+
+
+##Coffee Badge
+
+# def get_coffee_badge(self):
+#
+#     ## MULTIPLE DATA
+#     ##https://www.geeksforgeeks.org/python-pandas-dataframe-isin/
+#
+#     coffee_count = self.data['trigger'].str.contains('Coffee').sum() + self.data['trigger'].str.contains(
+#         'coffee').sum()  # or any()
+#
+#
+#
+#     if coffee_count > 0:
+#         return True
+#     else:
+#         return False
+
+##########
+##Testing
+##diet category
+##########
+
+
+
+
+       ###VERBOSE VERSION
+    # coffee_filter = self.data['trigger'].isin([coffee])
+    # gluten_filter = self.data['trigger'].isin([gluten])
+    # lactose_filter = self.data['trigger'].isin([lactose])
+    # lectin_filter = self.data['trigger'].isin([lectin])
+    #
+    # len(self.data[coffee_filter])
+    # len(self.data[gluten_filter])
+    # len(self.data[lactose_filter])
+    # len(self.data[lectin_filter])
