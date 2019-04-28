@@ -22,14 +22,19 @@ print('USER STATS **************')
 pprint.pprint(asaf.show_user_stats_dict())
 print('*************************')
 
-print('Citizen Scientist Badge Level:' + str(asaf.get_rank_badge()))
 
+print('Citizen Scientist Badge Level:' + str(asaf.get_rank_badge()))
 print('Complex Badge: ' + str(asaf.get_complex_diet_badge()))
 print('Archivist Badge; ' + str(asaf.get_archivist_badge()))
 print('Coffee Badge; ' + str(asaf.get_coffee_badge()))
 print('Lactose Badge: ' + str(asaf.get_lactose_badge()))
-print('*********USER STATS AND BAGES***********')
+print('Lectin Badge: ' + str(asaf.get_lectin_badge()))
+print('Gluten Badge: ' + str(asaf.get_gluten_badge()))
+
+
+print('*********USER STATS AND BADGES***********')
 pprint.pprint(asaf.create_table())
+
 
 #You Can Output to CSV
 #asaf.output_to_csv()

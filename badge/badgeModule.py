@@ -44,6 +44,16 @@ class Badge():
         ##LOAD DATA## # From Data CSV for testing
         self.data = csv
 
+        ###DIET CATEGORYS
+        # Category Dictionary
+        self.coffee = {'category': 'coffee', 'terms': ['coffee', 'latte', 'americano', 'espresso',
+                                                        'breve', 'cappucino', 'mocha', 'macchiato']}
+        self.gluten = {'category': 'gluten', 'terms': ['bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
+                                                        'pretzels', 'pancakes', 'waffles', 'biscuits']}
+        self.lactose = {'category': 'lactose', 'terms': ['milk', 'cheese', 'yogurt', 'alfredo']}
+        self.lectin = {'category': 'lectin', 'terms': ['1j23']}
+        # ['potato', 'tomato', ]
+
 
 
 
@@ -183,27 +193,26 @@ class Badge():
 
 
 
-    # Category Dictionary
-    coffee = {'cateagory': 'coffee', 'terms': ['coffee', 'latte', 'americano', 'espresso',
-                                               'breve', 'cappucino', 'mocha', 'macchiato']}
-    gluten = {'cateagory': 'gluten', 'terms': ['bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
-                                               'pretzels', 'pancakes', 'waffles', 'biscuits']},
-    lactose = {'cateagory': 'lactose', 'terms': ['milk', 'cheese', 'yogurt', 'alfredo']}
-    lectin = {'cateagory': 'lectin', 'terms': ['potato', 'tomato', ]}
 
+    ##
+    ##CATEGORY BADGES
+    ##
+    def apply_diet_filter(self, diet):
 
-    def apply_diet_filter(self,diet):
 
         self.data['trigger'] = self.data['trigger'].str.lower()
-
         filter = self.data['trigger'].isin(diet)
         category_count = len(self.data[filter])
-
 
         if category_count > 0:
             return True
         else:
             return False
+
+    def get_coffee_badge(self):
+        items = self.coffee.get('terms')
+        return self.apply_diet_filter(items)
+
 
     def get_gluten_badge(self):
         items = self.gluten.get('terms')
@@ -217,10 +226,7 @@ class Badge():
         items = self.lactose.get('terms')
         return self.apply_diet_filter(items)
 
-    def get_coffee_badge(self):
 
-        items = self.coffee.get('terms')
-        return self.apply_diet_filter(items)
 
 
 
