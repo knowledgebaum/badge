@@ -88,6 +88,8 @@ class Badge():
         scholVal = 100
         mastVal = 200
 
+
+
         # newbie
         if total_enteries >= newbVal and total_enteries < initVal:
             return 1
