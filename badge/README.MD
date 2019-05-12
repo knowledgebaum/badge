@@ -1,6 +1,6 @@
 # Badges
 
-This project aims to gamify the Dieta app by providing users badges for certain thresholds achieved in their user data.
+This project aims to gamify the Dieta app by providing users badges for certain thresholds achieved when recording  their user data.
 It takes input data from Dieta and outputs user stats, and various badges based on diet, 
 (like how frequently users add 
 information to the app, and the total number of enteries users have made.)
