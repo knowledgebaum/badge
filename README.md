@@ -6,9 +6,9 @@ It takes input data from Dieta and outputs user stats, and various badges based 
 information to the app, and the total number of enteries users have made.)
 
 ## Getting Started
-After cloning the repository, run runner.py to demo the badgeModule (which contains the Badge class) on the provided data.
+Clone the repository.  Go into the badge folder.  Run runner.py to demo the badgeModule (which contains the Badge class) on the provided data.  (You will have to change the sympPath and trigPath to the correct path for ak_symptoms, ak_triggers for your system file structure. )
 
-####To use the badgeModule 
+### To use the badgeModule 
 
  
 Import badgeModule, pathlib, pprint

@@ -12,3 +12,4 @@ models.py
 pip-selfcheck.json
 sqlAlchemy.py
 sqlite.py
+.idea
