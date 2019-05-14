@@ -3,3 +3,15 @@
 .RData
 .Ruserdata
 dep/
+db_no_share/
+Include/
+Lib/
+Scripts/
+.idea
+
+
+config.py
+models.py
+pip-selfcheck.json
+sqlAlchemy.py
+sqlite.py
