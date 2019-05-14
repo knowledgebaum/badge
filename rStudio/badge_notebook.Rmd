@@ -1,0 +1,198 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+##DIET TYPES
+
+
+
+#load data
+####CSV####
+sympPath <- read.csv('C:/webDev/pycharm/dieta/data/ak_symptoms.csv', header = T)
+trigPath <- read.csv('C:/webDev/pycharm/dieta/data/ak_triggers.csv', header = T)
+full_data <- merge(sympPath, trigPath, all.x = T, all.y = T )
+
+data(full_data)
+View(full_data)
+
+#conn <- dbConnect(RMySQL::MySQL(), dbname='dieta', host='DIETA_IP_ADDRESS', user='dieta_user', password='dieta_password')
+
+
+###SQL####
+
+```
+```{r}
+#clean data
+#not necessary here
+```
+
+
+
+
+```{r}
+#functions
+get_user_stats <- function(full_data){
+        
+  #CSV Version
+
+  total_food_enteries <- #nrow(select(trigger)) 
+    full_data %>% 
+    filter(!is.na(trigger))
+  
+  
+  total_symptom_enteries <- #nrow(select(symptom)) 
+    full_data %>% 
+    filter(!is.na(symptom))
+    
+    
+  total_enteries <- nrow(full_data)
+  
+  number_days_with_enteries <- dplyr::n_distinct(full_data.day) # nrow(distinct(full_data.day))
+  
+  first_entery <-  dplyr::first(full_data.day)
+    
+  
+  last_entry <- dplyr::first(full_data.day)
+  
+  #DB Version
+  
+}
+
+get_rank_badge <- function(){
+
+total_enteries <- nrow(fullData)
+
+#FOR LOOP VERSION  
+  RANK_CUTTOFFS <- c(10,15,25,50,100,200) # list of cuttoff values 
+  #(initiate, casual, enthusiast ... master )
+
+  for(i in 1:6){ #runs over the 6 levels of research rank
+    if(i < 6){ #runs 5 times then returns 6 on 6th time
+    if(total_enteries <= RANK_CUTTOFFS[i])
+    {
+      return (i)#returns a number representing the badge
+    }
+      
+    }
+    else{
+      return (6) #any number greater than
+      break
+    }
+    
+  }
+  
+  
+total_enteries <- nrow(fullData)
+
+    # cut off values for RANK BADGES
+newbVal <- 10
+initVal <- 15
+casVal <- 25
+enthusVal <- 50
+scholVal <- 100
+mastVal <- 200
+
+  if (total_enteries >= newbVal | total_enteries < initVal)
+  {return (1)}
+# Initiate Research
+else if (total_enteries >= initVal | total_enteries < casVal)
+  {return (2)}
+# Casual Researcher
+else if (total_enteries >= casVal | total_enteries < enthusVal)
+  {return (3)}
+# Research Enthusiast
+else if (total_enteries >= enthusVal | total_enteries < scholVal)
+  {return (4)}
+# Scholar
+else if (total_enteries >= scholVal | total_enteries < mastVal)
+  {return (5)}
+# Master Researcher
+else if (total_enteries >= mastVal)
+  {return (6)}
+else
+      {return ('broke')}
+}
+
+get_badge_boolean <- function(cut_value, query_result){
+  
+}
+
+get_complex_diet_badge<- function(){
+  COMPLEX_DIET_THRESHOLD <- 50 
+  query <- dplyr::n_distinct(full_data.trigger) #
+  result <-  get_badge_boolean(COMPLEX_DIET_THRESHOLD, result)
+  return (result)
+}
+
+get_archivist_badge <- function(){
+  #get max entieries per day for trigger, symptom
+  ARCHIVIST_THRESHOLD <-20
+  #query
+  trigger_max <- group_by(full_data, day) %>%
+    max(select(full_data, trigger))
+  symptom_max <-  group_by(full_data, day) %>%
+    max(select(full_data, symptom))
+  max_enteries_per_day <- trigger_max + symptom_max
+  result = get_badge_boolean(ARCHIVIST_THRESHOLD, max_enteries_per_day)
+  return(result)
+}
+  
+apply_diet_filter <- function(filter_food){
+  if(nrow(filter_food)>0){result<-TRUE}
+  else{result<-FALSE}
+  return(result)
+}
+
+get_coffee_badge <- function(){
+  DIET_COFFEE <- C('coffee', 'latte', 'americano', 'espresso', 'breve', 'cappucino', 'mocha', 'macchiato')
+  diet_items <- DIET_COFFEE
+    #query
+  food <- select(full_data, trigger)
+  filter_food <- filter(food, diet_items %in% food) 
+  result = apply_diet_filter(filter_food)
+  return(result)
+}
+
+get_gluten_badge <- function(){
+  DIET_GLUTEN <- C('bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
+'pretzels', 'pancakes', 'waffles', 'biscuits')
+  diet_items <- DIET_GLUTEN
+  food <- select(full_data, trigger)
+  filter_food <- filter(food, diet_items %in% food) 
+  result = apply_diet_filter(filter_food)
+  return(result)
+}
+
+get_lectin_badge <- function(){
+  DIET_LECTIN <- C('potato', 'tomato')
+  diet_items <- DIET_LECTIN
+  food <- select(full_data, trigger)
+  filter_food <- filter(food, diet_items %in% food) 
+ result = apply_diet_filter(filter_food)
+  return(result)
+}
+get_lactose_badge <- function(){
+  DIET_LACTOSE <- C('milk', 'cheese', 'yogurt', 'alfredo')
+  diet_items <- DIET_LACTOSE
+  food <- select(full_data, trigger)
+  filter_food <- filter(food, diet_items %in% food) 
+  result = apply_diet_filter(filter_food)
+  return(result)
+}
+```
+
+
+
+
+```{r}
+#do Section
+
+#dbDisconnect(conn)
+```
+
+
+

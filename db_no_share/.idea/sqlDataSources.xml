@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="cfdffd4d-f24f-44ab-a238-34f512169431" />
+          <option name="name" value="test_dieta_schema" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/test_dieta_schema.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
