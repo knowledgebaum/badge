@@ -7,9 +7,6 @@ db_no_share/
 Include/
 Lib/
 Scripts/
-
-
-
 config.py
 models.py
 pip-selfcheck.json
