@@ -17,7 +17,10 @@ def prepare_csv(csv1, csv2):
     trig_df = pd.read_csv(trigPath)
     #symptom_enteries = symp_df
     #food_enteries = trig_df
-    dataFrame = pd.concat([symp_df, trig_df], sort=False)
+    #dataFrame = pd.concat([symp_df, trig_df], axis=0, ignore_index=True, sort=False)
+    dataFrame = pd.merge(symp_df, trig_df, how='outer')
+    #dataFrame = pd.merge(symp_df, trig_df, how='outer')
+
     dataFrame['day'] = pd.to_datetime(dataFrame['day'])
     dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
 
@@ -59,7 +62,8 @@ class Badge():
     def get_user_stats(self):
         self.entery_count = self.data.count()
 
-        self.total_food_enteries = self.entery_count.loc['trigger']
+        #self.total_food_enteries = self.entery_count.loc['trigger']
+        self.total_food_enteries = len(self.data.trigger)
 
         self.total_symptom_enteries = self.entery_count.loc['symptom']
 

@@ -1,14 +1,7 @@
----
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
----
-
-```{r}
 
 library(cluster.datasets)
 library(dplyr)   
+library(NLP)
 
 ##DIET TYPES
 
@@ -28,17 +21,15 @@ data(full_data)
 #View(full_data)
 
 
-```
 
 
 
-
-```{r}
 #functions
 get_user_stats <- function(full_data){
-        
+  
+  View(full_data)
   #CSV Version
-
+  
   total_food_enteries <- #nrow(select(trigger)) 
     full_data %>% 
     filter(!is.na(trigger))
@@ -47,34 +38,34 @@ get_user_stats <- function(full_data){
   total_symptom_enteries <- #nrow(select(symptom)) 
     full_data %>% 
     filter(!is.na(symptom))
-    
+  
   
   total_enteries <- count(full_data)
   
   number_days_with_enteries <- count(distinct(full_data, day)) #nrow(distinct(full_data.day))
   
   first_entery <- first(select(full_data, day))
-    
+  
   
   last_entry <- last(select(full_data, day))
   
-
+  
 }
 
 get_rank_badge <- function(){
-
-total_enteries <- nrow(fullData)
-
-#FOR LOOP VERSION  
+  
+  total_enteries <- count(fullData)
+  
+  #FOR LOOP VERSION  
   RANK_CUTTOFFS <- c(10,15,25,50,100,200) # list of cuttoff values 
   #(initiate, casual, enthusiast ... master )
-
+  
   for(i in 1:6){ #runs over the 6 levels of research rank
     if(i < 6){ #runs 5 times then returns 6 on 6th time
-    if(total_enteries <= RANK_CUTTOFFS[i])
-    {
-      return (i)#returns a number representing the badge
-    }
+      if(total_enteries <= RANK_CUTTOFFS[i])
+      {
+        return (i)#returns a number representing the badge
+      }
       
     }
     else{
@@ -116,7 +107,7 @@ get_archivist_badge <- function(){
   result = get_badge_boolean(ARCHIVIST_THRESHOLD, max_enteries_per_day)
   return(result)
 }
-  
+
 apply_diet_filter <- function(filter_food){
   if(nrow(filter_food)>0){result<-TRUE}
   else{result<-FALSE}
@@ -126,7 +117,7 @@ apply_diet_filter <- function(filter_food){
 get_coffee_badge <- function(){
   DIET_COFFEE <- C('coffee', 'latte', 'americano', 'espresso', 'breve', 'cappucino', 'mocha', 'macchiato')
   diet_items <- DIET_COFFEE
-    #query
+  #query
   food <- select(full_data, trigger)
   filter_food <- filter(food, diet_items %in% food) 
   result = apply_diet_filter(filter_food)
@@ -135,7 +126,7 @@ get_coffee_badge <- function(){
 
 get_gluten_badge <- function(){
   DIET_GLUTEN <- C('bread', 'pasta', 'sour dough', 'macaroni', 'wheat', 'gnocchi',
-'pretzels', 'pancakes', 'waffles', 'biscuits')
+                   'pretzels', 'pancakes', 'waffles', 'biscuits')
   diet_items <- DIET_GLUTEN
   food <- select(full_data, trigger)
   filter_food <- filter(food, diet_items %in% food) 
@@ -148,7 +139,7 @@ get_lectin_badge <- function(){
   diet_items <- DIET_LECTIN
   food <- select(full_data, trigger)
   filter_food <- filter(food, diet_items %in% food) 
- result = apply_diet_filter(filter_food)
+  result = apply_diet_filter(filter_food)
   return(result)
 }
 get_lactose_badge <- function(){
@@ -159,80 +150,26 @@ get_lactose_badge <- function(){
   result = apply_diet_filter(filter_food)
   return(result)
 }
-```
 
-
-
-
-```{r}
-
-#EXCISE BELOW
-
-#conn <- dbConnect(RMySQL::MySQL(), dbname='dieta', host='DIETA_IP_ADDRESS', user='dieta_user', password='dieta_password')
-
-
-###SQL####
-
-
-# total_enteries <- nrow(fullData)
-# 
-#     # cut off values for RANK BADGES
-# newbVal <- 10
-# initVal <- 15
-# casVal <- 25
-# enthusVal <- 50
-# scholVal <- 100
-# mastVal <- 200
-# 
-#   if (total_enteries >= newbVal | total_enteries < initVal)
-#   {return (1)}
-# # Initiate Research
-# else if (total_enteries >= initVal | total_enteries < casVal)
-#   {return (2)}
-# # Casual Researcher
-# else if (total_enteries >= casVal | total_enteries < enthusVal)
-#   {return (3)}
-# # Research Enthusiast
-# else if (total_enteries >= enthusVal | total_enteries < scholVal)
-#   {return (4)}
-# # Scholar
-# else if (total_enteries >= scholVal | total_enteries < mastVal)
-#   {return (5)}
-# # Master Researcher
-# else if (total_enteries >= mastVal)
-#   {return (6)}
-# else
-#       {return ('broke')}
-# }
-
-```
-
-```{r}
-
-
+rank <- get_rank_badge()
+archivist <- get_archivist_badge()
+complext <- get_complex_diet_badge()
+coffee <- get_coffee_badge()
+gluten <- get_gluten_badge()
+lactose <- get_lactose_badge()
+lectin <- get_lectin_badge()
 
 
 get_user_stats(full_data)
 
 badge_name <- c("Rank", "Archivist", "Complex Diet", "Coffee", "Gluten", "Lactose", "Lectin")
-value <- c(get_rank_badge(), get_archivist_badge(),get_complex_diet_badge(), get_coffee_badge(), get_gluten_badge(), get_lactose_badge(), get_lectin_badge())
+#value <- list(get_rank_badge(), get_archivist_badge(),get_complex_diet_badge(), get_coffee_badge(), get_gluten_badge(), get_lactose_badge(), get_lectin_badge())
+#value <- list(as.String(get_rank_badge() ), as.String(get_archivist_badge() ),as.String(get_complex_diet_badge() ), as.String(get_coffee_badge() ), as.String(get_gluten_badge() ), as.String(get_lactose_badge() ), as.String(get_lectin_badge() ))
 
-#value <- c(1,2,3,4,5,6,7)
+#value
+#rank = get_rank_badge()
+#rank
+value = list(as.integer(as.logical(get_archivist_badge())))
 
 output_df <- data.frame(badge_name, value)
-
 View(output_df)
-```
-
-
-```{r}
-#clean data
-#not necessary here
-
-#do Section
-
-#dbDisconnect(conn)
-```
-
-
-

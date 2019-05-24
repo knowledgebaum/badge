@@ -1,6 +1,7 @@
 from badgeModule import Badge, prepare_csv
 from pathlib import Path
 import pprint
+
 import pandas as pd
 
 #badgeModule, runner.py, and test_badge should all be in the same directory.
