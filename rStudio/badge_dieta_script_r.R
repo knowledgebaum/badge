@@ -101,6 +101,7 @@ get_archivist_badge <- function(){
   #query
   trigger_max <- group_by(full_data, day) %>%
     max(select(full_data, trigger))
+  trigger_max
   symptom_max <-  group_by(full_data, day) %>%
     max(select(full_data, symptom))
   max_enteries_per_day <- trigger_max + symptom_max
@@ -153,7 +154,7 @@ get_lactose_badge <- function(){
 
 rank <- get_rank_badge()
 archivist <- get_archivist_badge()
-complext <- get_complex_diet_badge()
+complex <- get_complex_diet_badge()
 coffee <- get_coffee_badge()
 gluten <- get_gluten_badge()
 lactose <- get_lactose_badge()
