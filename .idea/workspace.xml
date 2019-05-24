@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/badge/badgeModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/badge/badgeModule.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/badge/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/badge/runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rStudio/badge_notebook.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/rStudio/badge_notebook.Rmd" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -440,8 +441,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32791328" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.33604336" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38617885" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.14253394" visible="true" weight="0.39756447" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38617885" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.14253394" visible="true" weight="0.39756447" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.3295129" />
       <window_info anchor="right" id="SciView" order="3" />
