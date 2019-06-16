@@ -10,38 +10,47 @@ import os.path
 ####################
 
 
-def prepare_csv(csv1, csv2):
-    sympPath = csv1
-    trigPath = csv2
-    symp_df = pd.read_csv(sympPath)
-    trig_df = pd.read_csv(trigPath)
-    #symptom_enteries = symp_df
-    #food_enteries = trig_df
-    #dataFrame = pd.concat([symp_df, trig_df], axis=0, ignore_index=True, sort=False)
-    dataFrame = pd.merge(symp_df, trig_df, how='outer')
-    #dataFrame = pd.merge(symp_df, trig_df, how='outer')
+def prepare_csv(csv1, csv2=None):
+    if csv2 is not None:
+        sympPath = csv1
+        trigPath = csv2
+        symp_df = pd.read_csv(sympPath)
+        trig_df = pd.read_csv(trigPath)
+        # symptom_enteries = symp_df
+        # food_enteries = trig_df
+        # dataFrame = pd.concat([symp_df, trig_df], axis=0, ignore_index=True, sort=False)
+        dataFrame = pd.merge(symp_df, trig_df, how='outer')
+        # dataFrame = pd.merge(symp_df, trig_df, how='outer')
 
-    dataFrame['day'] = pd.to_datetime(dataFrame['day'])
-    dataFrame['ts'] = pd.to_datetime(dataFrame['ts']) #may break
+        dataFrame['day'] = pd.to_datetime(dataFrame['day'])
+        dataFrame['ts'] = pd.to_datetime(dataFrame['ts'])  # may break
 
-    # #ERROR TESTING
-    # if os.path.basename(sympPath) and os.path.basename(trigPath):
-    #     raise NameError('The files are not CSVs')
-    # if os.path.exists(sympPath) and os.path.exists(trigPath):
-    #     raise NameError('The path to one of your CSV files is wrong.')
+        # #ERROR TESTING
+        # if os.path.basename(sympPath) and os.path.basename(trigPath):
+        #     raise NameError('The files are not CSVs')
+        # if os.path.exists(sympPath) and os.path.exists(trigPath):
+        #     raise NameError('The path to one of your CSV files is wrong.')
+    else:
+        dataFrame = pd.read_csv(csv1)
+
     return dataFrame
 
+
+def split_dataframe(uID, data):
+    data = data[data['person'] == uID]
+    return data
 
 
 
 class Badge():
 
-    def __init__(self, userID, csv):
+    def __init__(self, userID, dataframe):
         self.userID = userID
 
 
         #LOAD DATA From Data CSV for testing
-        self.data = csv
+        self.data = split_dataframe(csv)
+
 
 
         #DIET CATEGORYS DICTIONARYS
@@ -299,3 +308,19 @@ class Badge():
     # len(self.data[gluten_filter])
     # len(self.data[lactose_filter])
     # len(self.data[lectin_filter])
+
+
+"""
+necessary
+symptom, day, trigger, 
+sum_symp_trig
+
+description:
+total enteries
+totlal symptom enteries
+total food entereis
+
+update
+combined_ak_ta to lowercase 
+
+"""
