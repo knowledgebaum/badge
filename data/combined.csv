@@ -1,0 +1,87 @@
+ts,symptom,intensity,duration
+5/23/2019 19:05,pain,85,0
+5/23/2019 19:05,diarrhea,80,0
+4/26/2019 8:40,bloating,65,0
+4/26/2019 4:20,migraine,80,0
+4/22/2019 7:10,gas,60,0
+4/22/2019 3:45,bloating,40,0
+4/21/2019 18:15,bloating,50,0
+4/21/2019 18:15,gas,65,0
+4/21/2019 1:30,gas,80,181
+4/19/2019 20:45,difficulty,60,0
+4/19/2019 20:45,incompleteness,65,0
+4/16/2019 17:05,diarrhea,90,0
+4/16/2019 17:05,incompleteness,20,0
+4/16/2019 16:20,diarrhea,80,0
+4/16/2019 16:20,incompleteness,25,0
+4/16/2019 16:15,diarrhea,90,0
+4/16/2019 16:15,incompleteness,25,0
+4/13/2019 17:05,difficulty,25,0
+4/13/2019 17:05,diarrhea,20,0
+4/13/2019 17:05,incompleteness,40,0
+4/12/2019 20:30,difficulty,45,0
+4/12/2019 20:30,pain,10,0
+4/12/2019 20:30,constipation,30,0
+4/12/2019 20:30,incompleteness,65,0
+4/12/2019 5:40,diarrhea,40,0
+4/12/2019 4:55,diarrhea,40,0
+4/10/2019 15:40,difficulty,10,0
+4/10/2019 15:40,diarrhea,90,0
+4/10/2019 15:40,incompleteness,10,0
+4/10/2019 15:40,incompleteness,15,0
+4/9/2019 22:30,abdominal pain left,30,0
+4/9/2019 18:50,diarrhea,40,0
+4/9/2019 18:50,incompleteness,15,0
+4/9/2019 18:35,abdominal pain left,45,0
+4/9/2019 17:25,abdominal pain left,25,0
+4/9/2019 17:25,difficulty,35,0
+4/9/2019 17:25,incompleteness,65,0
+4/7/2019 21:15,abdominal pain left,60,0
+4/7/2019 20:30,difficulty,55,0
+4/7/2019 20:30,constipation,10,0
+4/7/2019 20:30,incompleteness,65,0
+4/7/2019 20:20,pain,55,0
+4/6/2019 17:55,urgency,25,0
+4/6/2019 17:55,diarrhea,90,0
+4/6/2019 17:55,diarrhea,100,0
+4/6/2019 17:55,diarrhea,100,0
+4/6/2019 17:55,diarrhea,100,0
+4/6/2019 17:55,incompleteness,50,0
+4/6/2019 17:55,incompleteness,25,0
+4/6/2019 17:55,incompleteness,25,0
+4/4/2019 14:55,difficulty,20,0
+4/4/2019 14:55,urgency,45,0
+4/4/2019 14:55,diarrhea,100,0
+4/4/2019 14:50,difficulty,30,0
+4/4/2019 14:50,urgency,60,0
+4/4/2019 14:50,urgency,60,0
+4/4/2019 14:50,diarrhea,100,0
+4/4/2019 14:50,diarrhea,100,0
+4/4/2019 14:50,incompleteness,70,0
+4/4/2019 14:50,incompleteness,65,0
+4/2/2019 8:50,bloating,45,0
+3/31/2019 1:40,bloating,60,0
+3/30/2019 21:00,bloating,65,0
+3/27/2019 18:35,pain,10,5
+3/27/2019 18:35,diarrhea,100,5
+3/27/2019 18:35,incompleteness,100,5
+3/26/2019 3:10,stomach pain,40,0
+3/26/2019 3:10,gas,70,0
+3/22/2019 23:45,indigestion,50,0
+3/22/2019 19:00,pain,15,0
+3/22/2019 19:00,urgency,75,0
+3/22/2019 19:00,diarrhea,80,0
+3/22/2019 17:50,difficulty,5,5
+3/22/2019 17:50,pain,20,5
+3/22/2019 17:50,urgency,25,5
+3/22/2019 17:50,incompleteness,40,5
+3/22/2019 16:10,bloating,20,0
+3/22/2019 16:10,indigestion,30,0
+3/22/2019 16:10,gas,25,0
+3/22/2019 16:10,heartburn,40,0
+3/22/2019 16:10,stomach pain,25,0
+3/22/2019 16:10,nausea,15,0
+3/22/2019 3:05,nausea,35,0
+3/22/2019 3:05,stomach pain,45,0
+3/22/2019 3:05,urgency,35,0
+3/22/2019 3:05,bloating,60,0
