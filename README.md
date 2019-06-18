@@ -1,3 +1,11 @@
+#Simple Badges
+
+## Getting Started
+Clone the repository.  Go into the badge folder. Run simple_badge_module with the argument 1 or 2 ( where 1 = AK, 2 = TA).
+
+__UPDATING IN PROGRESS__
+
+
 # Badges
 
 This project aims to gamify the Dieta app by providing users badges for certain thresholds achieved when recording  their user data.
