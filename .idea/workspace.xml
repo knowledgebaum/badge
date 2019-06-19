@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224dab12-1716-4078-ac25-c6feb910e37f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/badge/test_simple_badge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/combine.R" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/combined.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/settled_combined_ak_ta.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/ta_symptoms.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/ta_triggers.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rStudio/combine_data.R" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rStudio/combined_ak_ta.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dieta.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dieta.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/badge/simple_runner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/badge/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/badge/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/badge/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/badge/simple_badge_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/badge/simple_badge_module.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,14 +47,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="simple_badge_module.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simple_badge_module.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/badge/simple_badge_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="214" column="43" lean-forward="true" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
+            <state relative-caret-position="218">
+              <caret line="233" column="40" selection-start-line="233" selection-start-column="4" selection-end-line="233" selection-end-column="40" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simple_runner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/badge/simple_runner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="157">
+                <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -109,12 +121,12 @@
       <find>filter</find>
       <find>print</find>
       <find>rank</find>
-      <find>users_data</find>
       <find>get_rank</find>
       <find>users_dat</find>
       <find>coffe</find>
       <find>entery_count</find>
       <find>person_arg</find>
+      <find>users_data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,9 +167,11 @@
         <option value="$PROJECT_DIR$/badge/r_python_badge_module.py" />
         <option value="$PROJECT_DIR$/badge/badgeModule.py" />
         <option value="$PROJECT_DIR$/badge/test_simple_badge.py" />
-        <option value="$PROJECT_DIR$/badge/simple_badge_module.py" />
         <option value="$PROJECT_DIR$/badge/test.py" />
         <option value="$PROJECT_DIR$/badge/Untitled.ipynb" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/badge/simple_badge_module.py" />
+        <option value="$PROJECT_DIR$/badge/simple_runner.py" />
       </list>
     </option>
   </component>
@@ -438,20 +452,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="314" height="676" id="Documentation" order="5" side_tool="true" visible="true" weight="0.1704871" />
+      <window_info anchor="right" x="0" y="0" width="314" height="676" id="Documentation" order="5" side_tool="true" visible="true" weight="0.08166189" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32791328" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.62466127" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4417344" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.1407767" visible="true" weight="0.2858166" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4417344" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8131068" visible="true" weight="0.2858166" />
       <window_info anchor="right" id="Database" order="3" weight="0.3295129" />
       <window_info anchor="right" id="SciView" order="4" />
-      <window_info id="Structure" order="1" sideWeight="0.8592233" side_tool="true" weight="0.2858166" />
+      <window_info id="Structure" order="1" sideWeight="0.18689321" side_tool="true" visible="true" weight="0.2858166" />
       <window_info id="Favorites" order="2" sideWeight="0.85746604" side_tool="true" weight="0.18624642" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39972898" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -652,11 +665,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/badge/simple_badge_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="214" column="43" lean-forward="true" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
+        <state relative-caret-position="218">
+          <caret line="233" column="40" selection-start-line="233" selection-start-column="4" selection-end-line="233" selection-end-column="40" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/badge/simple_runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="157">
+            <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

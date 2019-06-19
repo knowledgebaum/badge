@@ -5,6 +5,26 @@ Clone the repository.  Go into the badge folder. Run simple_badge_module with th
 
 __UPDATING IN PROGRESS__
 
+## Columns Inputs
+This script expects a .csv with these columns: ts,symptom,intensity,duration,day,week,month,trigger,person
+
+## Outputs
+####STATS
+person,
+total_symptom_enteries,
+total_food_enteries,
+total_enteries,
+first_entery,
+last_entry,
+number_days_with_enteries,
+####BADGES
+rank,
+complex_diet,
+archivist,
+coffee,
+gluten,
+lactose,
+lectin
 
 # Badges
 

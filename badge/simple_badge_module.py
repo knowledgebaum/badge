@@ -4,19 +4,37 @@ import numpy as np
 import os.path
 import sys
 
+
 #######Load CSV#####
-csv_path =  "C:\webDev\pycharm\dieta\\badge\data\\final_combined_ak_ta.csv"
-if not os.path.exists(csv_path):
-    csv_path = Path("badge/data/final_combined_ak_ta.csv")
+def load_csv():
+    dirname = os.getcwd()
+    csv_path =  "C\webDev\pycharm\dieta\\badge\data\\final_combined_ak_ta.csv"
+    if not os.path.exists(csv_path):
+        csv_path = os.path.join(dirname, "data\\final_combined_ak_ta.csv")
 
-users_data = pd.read_csv(csv_path)
-try:
-    person_arg =  sys.argv[1]
-except:
-    print('Please add user number (1 or 2 ) as an argument ')
+#    print(csv_path)
+    users_data = pd.read_csv(csv_path)
+    return users_data
 
-if not os.path.exists(csv_path):
-    csv_path = "badge/data/final_combined_ak_ta.csv"
+users_data = load_csv()
+
+def get_args():
+    try:
+        person_arg = sys.argv[1]
+    except:
+        print('Please add user number (1 or 2 ) as an argument to indicate the person you are choosing')
+    return person_arg
+
+
+#
+# if len(sys.argv) == 3:
+#     csv_path = sys.argv[2]
+#     if not os.path.exists(csv_path):
+#         print("The path entered ("+ csv_path + ") does not work")
+# else:
+#     csv_path = "C\webDev\pycharm\dieta\\badge\data\\final_combined_ak_ta.csv"
+#     if not os.path.exists(csv_path):
+#         csv_path = "badge/data/final_combined_ak_ta.csv"
 
 def get_person_dataframe(person, csv=users_data):
     #split dataframe
@@ -155,6 +173,7 @@ def get_lactose_badge(person, users_df=users_data):
 
 
 def get_user_stats(person, users_df=users_data):
+
     df = get_person_dataframe(person, users_df)
     person = person #df.iloc[0, 0]
     #entery_count = df.count()
@@ -208,7 +227,7 @@ def get_user_stats(person, users_df=users_data):
 ###COMMAND ARG VERSION
 
 if len(sys.argv) > 1:
-    print(get_user_stats(int(person_arg), users_data))
+    print(get_user_stats(int(get_args()), users_data))
 
 
 ###MANUAL VERSION
