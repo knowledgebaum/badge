@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224dab12-1716-4078-ac25-c6feb910e37f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,8 +81,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-120">
-                <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+              <first_editor relative-caret-position="270">
+                <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
               </first_editor>
               <second_editor />
             </state>
@@ -404,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560725202239</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Changed readme">
+      <created>1561049134777</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561049134777</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -513,7 +519,8 @@
     <MESSAGE value="Commited README, badge class and unit test and data to project.  Test work (5 pass, 1 fail)" />
     <MESSAGE value="Improved the readability of Badge Module" />
     <MESSAGE value="Added simple_badge_module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added simple_badge_module" />
+    <MESSAGE value="Changed readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,8 +705,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-120">
-            <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <first_editor relative-caret-position="270">
+            <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
           </first_editor>
           <second_editor />
         </state>
