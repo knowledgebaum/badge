@@ -2,7 +2,7 @@
 
 ## Getting Started
 Clone the repository.  Go into the badge folder.
- ####To run
+ ###To run
  At command prompt type:
 * python simple_badge_module.py 1
 
@@ -10,11 +10,11 @@ Or
 
 * python simple_runner.py 
 
-####To test
+###To test
 
 python test_simple_badge.py
 
-####Note
+###Note
  simple_badge_module arguments are 1 or 2 ( where 1 = AK, 2 = TA).
 
 
@@ -23,7 +23,7 @@ python test_simple_badge.py
 This script expects a .csv with these columns: ts,symptom,intensity,duration,day,week,month,trigger,person
 
 ## Outputs
-####STATS
+###STATS
 person,
 total_symptom_enteries,
 total_food_enteries,
@@ -31,7 +31,7 @@ total_enteries,
 first_entery,
 last_entry,
 number_days_with_enteries,
-####BADGES
+###BADGES
 rank,
 complex_diet,
 archivist,
